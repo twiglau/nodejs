@@ -10,3 +10,4 @@
 // git commit -m "fix: 修复Bug"
 // git commit -m "doc: 编写了什么文档"
 // git commit -m "line: 做了格式eslint上内容"
+// git show "commit-ID" 查看修改了什么
