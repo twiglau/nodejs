@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title><%= title %></title>
+    <link rel='stylesheet' href='/stylesheets/style.css' />
+  </head>
+  <body>
+    <h1><%= title %></h1>
+    <p>EJS Welcome to <%= title %></p>
+    <p><%= message %></p>
+    <p><%= locals.name %></p>
+    <!-- 不确定是否有,可以加一个locals -->
+    <%- include('widgets/user-info',{
+      isMe
+    }) %>
+    <%- include('widgets/blog-list',{
+      blogList
+    }) %>
+    
+  </body>
+</html>
