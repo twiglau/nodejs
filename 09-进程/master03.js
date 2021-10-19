@@ -6,12 +6,19 @@ server.listen(1337);
 
 var workers = {};
 var createWorker = function(){
-    var worker = fork(__dirname + '/worker.js');
+    var worker = fork(__dirname + '/worker03.js');
+
+    //启动新的进程
+    //主进程将重启工作进程的任务,从exit事件的处理函数中转移到message事件的处理函数中.
+    worker.on('message', function(message){
+        if(message.act === 'suicide'){
+            createWorker();
+        }
+    });
     //退出时重新启动新的进程
     worker.on('exit',function(){
         console.log('Worker ' + worker.pid + ' exited.');
         delete workers[worker.pid];
-        createWorker();
     });
     //句柄转发
     worker.send('server',server);
