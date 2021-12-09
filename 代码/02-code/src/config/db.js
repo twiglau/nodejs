@@ -5,21 +5,21 @@
  */
 
 let REDIS_CONF = {
-  prot: 6379,
+  port: 6379,
   host: '127.0.0.1'
 }
 let MYSQL_CONF = {
   host: 'localhost',
   dialect: 'mysql',
   user: 'root',
-  password: 'root',
-  prot: '3306',
-  database: 'koa2_weibo'
+  password: 'Lzy1990052812',
+  port: '3306',
+  database: 'koa2_weibo_db'
 }
 // 判断线上环境还是线下环境
 if (process.env === 'dev') {
   REDIS_CONF = {
-    prot: 6379,
+    port: 6379,
     host: '127.0.0.1'
   }
   MYSQL_CONF = {
@@ -27,12 +27,12 @@ if (process.env === 'dev') {
     dialect: 'mysql',
     user: 'root',
     password: 'root',
-    prot: '3306',
-    database: 'koa2_weibo'
+    port: '3306',
+    database: 'koa2_weibo_db'
   }
 } else {
   REDIS_CONF = {
-    prot: 6379,
+    port: 6379,
     host: '127.0.0.1'
   }
   MYSQL_CONF = {
@@ -40,8 +40,8 @@ if (process.env === 'dev') {
     dialect: 'mysql',
     user: 'root',
     password: 'root',
-    prot: '3306',
-    database: 'koa2_weibo'
+    port: '3306',
+    database: 'koa2_weibo_db'
   }
 }
 
