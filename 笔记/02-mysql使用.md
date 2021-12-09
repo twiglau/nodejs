@@ -37,4 +37,12 @@ select * from blogs order by id desc limit 2 offset 2;
 > 2. Foreign Keys
 > 3. On update: CASCADE  On Delete: CASCADE 更新,删除级联
 > 4. 注释 Comment:
+### 如何连表查询
+```
+select * from blogs inner join users on users.id = blogs.userid;
+
+select blogs.*,users.username,users.nickname 
+from blogs inner join users on users.id = blogs.userid
+where users.username = 'lisi';
+```
 
