@@ -1,4 +1,5 @@
 
+const path = require('path')
 const Koa = require('koa')
 const app = new Koa()
 const views = require('koa-views')
@@ -8,7 +9,6 @@ const bodyparser = require('koa-bodyparser')
 const logger = require('koa-logger')
 const session = require('koa-generic-session')
 const redisStore = require('koa-redis')
-const path = require('path')
 const { REDIS_CONF } = require('./config/db')
 const { isProd } = require('./utils/env')
 const { SESSION_SECRET_KEY } = require('./config/secretKeys')
@@ -47,7 +47,7 @@ app.use(
     prefix: 'weibo:sess:',
     cookie: {
       path: '/',
-      httpOnly: true,
+      httpOnly: true,//只能通过server端修改cookie
       maxAge: 24 * 60 * 60 * 1000
     },
     store: redisStore({
